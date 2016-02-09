@@ -100,7 +100,7 @@ namespace AutoKoanRunner
 					launch.StartInfo.Arguments = koans.AssemblyPath;
 					launch.StartInfo.RedirectStandardOutput = true;
 					launch.StartInfo.UseShellExecute = false;
-					launch.Start();
+                    launch.Start();
 					string output = launch.StandardOutput.ReadToEnd();
 					launch.WaitForExit();
 					EchoResult(output, koans.ProjectName);
