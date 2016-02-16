@@ -53,6 +53,7 @@ namespace DotNetKoans.CSharp
         {
             var array = new[] { "peanut", "butter", "and", "jelly" };
 
+
             Assert.Equal("peanut", array[0]);
             Assert.Equal("jelly", array[3]);
             
@@ -74,10 +75,10 @@ namespace DotNetKoans.CSharp
             var array = new[] { 1, 2 };
             Stack stack = new Stack(array);
             stack.Push("last");
-            Assert.Equal("last", stack.ToArray());
+            Assert.Equal(new object[] {"last", 2, 1 }, stack.ToArray());
             var poppedValue = stack.Pop();
-            Assert.Equal(FILL_ME_IN, poppedValue);
-            Assert.Equal(FILL_ME_IN, stack.ToArray());
+            Assert.Equal("last", poppedValue);
+            Assert.Equal(new Object[] {2, 1}, stack.ToArray());
         }
 
         [Koan(6)]
@@ -91,16 +92,16 @@ namespace DotNetKoans.CSharp
             var list = new LinkedList<string>(array);
 
             list.AddFirst("Say");
-            Assert.Equal(FILL_ME_IN, list.ToArray());
+            Assert.Equal(new string[] {"Say", "Hello", "World" }, list.ToArray());
 
             list.RemoveLast();
-            Assert.Equal(FILL_ME_IN, list.ToArray());
+            Assert.Equal(new string[] {"Say", "Hello" }, list.ToArray());
 
             list.RemoveFirst();
-            Assert.Equal(FILL_ME_IN, list.ToArray());
+            Assert.Equal(new string[] {"Hello"}, list.ToArray());
 
             list.AddAfter(list.Find("Hello"), "World");
-            Assert.Equal(FILL_ME_IN, list.ToArray());
+            Assert.Equal(new string[] {"Hello", "World" }, list.ToArray());
         }
 
     }

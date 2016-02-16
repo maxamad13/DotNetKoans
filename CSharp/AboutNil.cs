@@ -50,6 +50,9 @@ namespace DotNetKoans.CSharp
         {
             object obj = null;
             Assert.Null(obj);
+
+            //1.Comment the line out. And take notes
+            //2.Assert.Equal(obj, nulls)
         }
     }
 }
