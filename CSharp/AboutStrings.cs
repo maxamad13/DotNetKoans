@@ -18,21 +18,21 @@ namespace DotNetKoans.CSharp
         public void DoubleQuotedStringsAreStrings()
         {
             var str = "Hello, World";
-            Assert.Equal(typeof(FillMeIn), str.GetType());
+            Assert.Equal(typeof(String), str.GetType());
         }
 
         [Koan(2)]
         public void SingleQuotedStringsAreNotStrings()
         {
             var str = 'H';
-			Assert.Equal(typeof(FillMeIn), str.GetType());
+			Assert.Equal(typeof(System.Char), str.GetType());
         }
 
         [Koan(3)]
         public void CreateAStringWhichContainsDoubleQuotes()
         {
             var str = "Hello, \"World\"";
-            Assert.Equal(FILL_ME_IN, str.Length);
+            Assert.Equal(14, str.Length);
         }
 
         [Koan(4)]
@@ -41,7 +41,7 @@ namespace DotNetKoans.CSharp
             //The @ symbol creates a 'verbatim string literal'. 
             //Here's one thing you can do with it:
             var str = @"Hello, ""World""";
-            Assert.Equal(FILL_ME_IN, str.Length);
+            Assert.Equal(14, str.Length);
         }
 
         [Koan(5)]
@@ -49,7 +49,7 @@ namespace DotNetKoans.CSharp
         {
             var strA = @"Verbatim Strings can handle both ' and "" characters (when escaped)";
             var strB = "Verbatim Strings can handle both ' and \" characters (when escaped)";
-            Assert.Equal(FILL_ME_IN, strA.Equals(strB));
+            Assert.Equal(true, strA.Equals(strB));
         }
 
         [Koan(6)]
@@ -63,8 +63,9 @@ namespace DotNetKoans.CSharp
 am a
 broken line";
             Assert.Equal(20, verbatimString.Length);
-            var literalString = FILL_ME_IN;
+            var literalString = verbatimString;
             Assert.Equal(literalString, verbatimString);
+            
         }
 
         [Koan(7)]
@@ -75,7 +76,7 @@ broken line";
             //the hardcoded escape sequence. A much better way
             //(We'll handle concatenation and better ways of that in a bit)
             var literalString = "I" + System.Environment.NewLine + "am a" + System.Environment.NewLine + "broken line";
-            var vebatimString = FILL_ME_IN;
+            var vebatimString = literalString;
             Assert.Equal(literalString, vebatimString);
         }
 
@@ -83,7 +84,7 @@ broken line";
         public void PlusWillConcatenateTwoStrings()
         {
             var str = "Hello, " + "World";
-            Assert.Equal(FILL_ME_IN, str);
+            Assert.Equal("Hello, World", str);
         }
 
         [Koan(9)]
@@ -92,8 +93,8 @@ broken line";
             var strA = "Hello, ";
             var strB = "World";
             var fullString = strA + strB;
-            Assert.Equal(FILL_ME_IN, strA);
-            Assert.Equal(FILL_ME_IN, strB);
+            Assert.Equal("Hello, ", strA);
+            Assert.Equal("World", strB);
         }
 
         [Koan(10)]
@@ -102,8 +103,8 @@ broken line";
             var strA = "Hello, ";
             var strB = "World";
             strA += strB;
-            Assert.Equal(FILL_ME_IN, strA);
-            Assert.Equal(FILL_ME_IN, strB);
+            Assert.Equal("Hello, World", strA);
+            Assert.Equal("World", strB);
         }
 
         [Koan(11)]
@@ -117,7 +118,7 @@ broken line";
             var originalString = strA;
             var strB = "World";
             strA += strB;
-            Assert.Equal(FILL_ME_IN, originalString);
+            Assert.Equal("Hello, ", originalString);
 
             //What just happened? Well, the string concatenation actually
             //takes strA and strB and creates a *new* string in memory
@@ -134,7 +135,7 @@ broken line";
 		{
 			var world = "World";
 			var str = String.Format("Hello, {0}", world);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("Hello, World", str);
 		}
 
 		[Koan(13)]
