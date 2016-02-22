@@ -8,6 +8,8 @@ namespace DotNetKoans.CSharp
 {
     public class AboutStrings : Koan
     {
+        private string x;
+
         //Note: This is one of the longest katas and, perhaps, one
         //of the most important. String behavior in .NET is not
         //always what you expect it to be, especially when it comes
@@ -142,7 +144,7 @@ broken line";
 		public void AnyExpressionCanBeUsedInFormatString()
 		{
 			var str = String.Format("The square root of 9 is {0}", Math.Sqrt(9));
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("The square root of 9 is 3", str);
 		}
 
 		[Koan(14)]
@@ -150,56 +152,56 @@ broken line";
 		{
 			//You can modify the value inserted into the result
 			var str = string.Format("{0,3:}", "x");
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("  x", str);
 		}
 
 		[Koan(15)]
 		public void StringsCanBePaddedToTheRight()
 		{
 			var str = string.Format("{0,-3:}", "x");
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("x  ", str);
 		}
 
 		[Koan(16)]
 		public void SeperatorsCanBeAdded()
 		{
 			var str = string.Format("{0:n}", 123456);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("123,456.00", str);/// ask this questions
 		}
 
 		[Koan(17)]
 		public void CurrencyDesignatorsCanBeAdded()
 		{
 			var str = string.Format("{0:n}", 123456);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("123,456.00", str);
 		}
 
 		[Koan(18)]
 		public void NumberOfDisplayedDecimalsCanBeControled()
 		{
 			var str = string.Format("{0:.##}", 12.3456);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("12.35", str);
 		}
 
 		[Koan(19)]
 		public void MinimumNumberOfDisplayedDecimalsCanBeControled()
 		{
 			var str = string.Format("{0:.00}", 12.3);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("12.30", str);
 		}
 
 		[Koan(20)]
 		public void BuiltInDateFormaters()
 		{
 			var str = string.Format("{0:t}", DateTime.Parse("12/16/2011 2:35:02 PM"));
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("2:35 PM", str);
 		}
 
 		[Koan(21)]
 		public void CustomeDateFormaters()
 		{
 			var str = string.Format("{0:t m}", DateTime.Parse("12/16/2011 2:35:02 PM"));
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("P 35", str);
 		}
 		//These are just a few of the formatters available. Dig some and you may find what you need.
 
@@ -231,28 +233,28 @@ broken line";
 			strBuilder.AppendFormat("{0} {1} {2}", "jumped", "over", "the");
 			strBuilder.AppendFormat("{0} {1}.", "lazy", "dog");
 			var str = strBuilder.ToString();
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("The quick brownjumped over thelazy dog.", str);//Ask this part
 		}
 		
         [Koan(23)]
         public void LiteralStringsInterpretsEscapeCharacters()
         {
             var str = "\n";
-            Assert.Equal(FILL_ME_IN, str.Length);
+            Assert.Equal(1, str.Length);
         }
 
         [Koan(24)]
         public void VerbatimStringsDoNotInterpretEscapeCharacters()
         {
             var str = @"\n";
-            Assert.Equal(FILL_ME_IN, str.Length);
+            Assert.Equal(2, str.Length);
         }
 
         [Koan(25)]
         public void VerbatimStringsStillDoNotInterpretEscapeCharacters()
         {
             var str = @"\\\";
-            Assert.Equal(FILL_ME_IN, str.Length);
+            Assert.Equal(3, str.Length);  //ask this part
         }
 
         [Koan(28)]
